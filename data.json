@@ -1,0 +1,65 @@
+﻿[
+    {
+        "folder":  "01_Cursus basis naaien",
+        "files":  [
+                      "01_METEN.pdf",
+                      "02_TEKENEN.pdf",
+                      "03_KNIPPEN.pdf",
+                      "04_STIKKEN.pdf",
+                      "05_STRIJKEN.pdf",
+                      "06_AFWERKEN.pdf"
+                  ]
+    },
+    {
+        "folder":  "02_Techniek Stikoefeningen op papier en op stof",
+        "files":  [
+                      "01_NAADSTAND.pdf",
+                      "02_Juist beginnen en eindigen Bestand.pdf",
+                      "03_Gebogen lijnen.pdf",
+                      "04_Stikken van hoeken.pdf"
+                  ]
+    },
+    {
+        "folder":  "03_Techniek Randen afwerken",
+        "files":  [
+                      "01_Enkele en dubbele inlegzool.pdf",
+                      "03_Opgestikte zak - patroon 1 Bestand.pdf",
+                      "04_Opgestikte zak - patroon 2 Bestand.pdf"
+                  ]
+    },
+    {
+        "folder":  "04_Naden afwerken",
+        "files":  [
+                      "01_Enkele en opengestreken rafelnaad.pdf",
+                      "02_Engelse en Platte naad.pdf"
+                  ]
+    },
+    {
+        "folder":  "05_Zakje om scharen op te bergen",
+        "files":  [
+                      "01_Zakje om scharen op te bergen.pdf"
+                  ]
+    },
+    {
+        "folder":  "06_Technieken rokje_met filmpjes",
+        "files":  [
+
+                  ]
+    },
+    {
+        "folder":  "07_Techniek  Afwerking hals met afzonderlijk hals en armbeleg",
+        "files":  [
+                      "01_patroonblad 1.pdf",
+                      "02_patroonblad 2.pdf",
+                      "03_patroonblad 3.pdf",
+                      "04_patroonblad 4.pdf"
+                  ]
+    },
+    {
+        "folder":  "08_Document  Zo veel zomen",
+        "files":  [
+                      "01_Zo veel zomen.pdf",
+                      "02_Handgemaakte zoomafwerkingen.pdf"
+                  ]
+    }
+]
