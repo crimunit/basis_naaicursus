@@ -8,7 +8,7 @@
 
 <style>
 body {
-    font-family: Segoe UI, Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     margin: 0;
     background: #f5f7fb;
     color: #333;
@@ -32,7 +32,7 @@ h1 {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     padding: 30px;
 }
@@ -65,7 +65,7 @@ h1 {
     color: #333;
     background: #f8fafc;
     border-radius: 8px;
-    transition: .2s;
+    transition: all .2s ease;
 }
 
 .pdf-link:hover {
@@ -78,7 +78,15 @@ h1 {
     color: #777;
     font-style: italic;
 }
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 8px;
+}
 </style>
+
 </head>
 <body>
 
@@ -89,7 +97,96 @@ h1 {
     </div>
 </header>
 
-<div class="container" id="content"></div>
+<div class="container" id="content">
+    <p>Laden...</p>
+</div>
 
 <script>
 
+function cleanName(name) {
+
+    return name
+        .replace(/^\d+_/, "")
+        .replace(/\.pdf$/i, "")
+        .replaceAll("_", " ");
+}
+
+fetch("./data.json")
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error(
+                "Kan data.json niet laden (" +
+                response.status +
+                ")"
+            );
+        }
+
+        return response.json();
+    })
+    .then(data => {
+
+        const container =
+            document.getElementById("content");
+
+        container.innerHTML = "";
+
+        data.forEach(folder => {
+
+            const chapter =
+                document.createElement("div");
+
+            chapter.className = "chapter";
+
+            let html = `
+                <div class="chapter-title">
+                    📁 ${cleanName(folder.folder)}
+                </div>
+                <div class="pdf-list">
+            `;
+
+            if (!folder.files || folder.files.length === 0) {
+
+                html += `
+                    <div class="empty">
+                        Nog geen documenten beschikbaar
+                    </div>
+                `;
+            }
+            else {
+
+                folder.files.forEach(file => {
+
+                    html += `
+                        <a
+                            class="pdf-link"
+                            href="${encodeURIComponent(folder.folder)}/${encodeURIComponent(file)}"
+                            target="_blank">
+                            📄 ${cleanName(file)}
+                        </a>
+                    `;
+                });
+            }
+
+            html += "</div>";
+
+            chapter.innerHTML = html;
+
+            container.appendChild(chapter);
+        });
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        document.getElementById("content").innerHTML =
+            `<div class="error">
+                Fout bij laden van data.json:<br>
+                ${error.message}
+            </div>`;
+    });
+
+</script>
+
+</body>
+</html>
